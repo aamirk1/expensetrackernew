@@ -28,6 +28,9 @@ dependencies:
   
   expense_repository:
     path: packages/expense_repository
+  firebase_auth: ^4.20.0
+  # user_repository:
+  #   path: packages/expense_repository
 
 dev_dependencies:
   flutter_test:
