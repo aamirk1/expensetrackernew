@@ -1,8 +1,10 @@
 import 'dart:math';
 
 import 'package:expense_repository/expense_repository.dart';
+import 'package:expensetracker/blocs/sign_in_bloc/sign_in_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 import '../../../data/data.dart';
@@ -65,7 +67,10 @@ class MainScreen extends StatelessWidget {
                   ],
                 ),
                 IconButton(
-                    onPressed: () {}, icon: const Icon(CupertinoIcons.settings))
+                    onPressed: () {
+                      context.read<SignInBloc>().add(const SignOutRequired());
+                    },
+                    icon: const Icon(CupertinoIcons.settings))
               ],
             ),
             const SizedBox(
