@@ -104,9 +104,12 @@ class _AddExpenseState extends State<AddExpense> {
                                   size: 16,
                                   color: Colors.grey,
                                 )
-                              : Image.asset(
-                                  'assets/icons/${expense.category.icon}.png',
-                                  scale: 4,
+                              : Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Image.asset(
+                                    'assets/icons/${expense.category.icon}.png',
+                                    scale: 10,
+                                  ),
                                 ),
                           suffixIcon: IconButton(
                               onPressed: () async {
@@ -116,10 +119,12 @@ class _AddExpenseState extends State<AddExpense> {
                                   state.categories.insert(0, newCategory);
                                 });
                               },
-                              icon: const Icon(
+                              icon: Icon(
                                 FontAwesomeIcons.plus,
                                 size: 16,
-                                color: Colors.grey,
+                                color: expense.category == Category.empty
+                                    ? Colors.grey
+                                    : Colors.black,
                               )),
                           hintText: 'Category',
                           border: const OutlineInputBorder(
@@ -153,7 +158,7 @@ class _AddExpenseState extends State<AddExpense> {
                                       },
                                       leading: Image.asset(
                                         'assets/icons/${state.categories[i].icon}.png',
-                                        scale: 4,
+                                        scale: 2,
                                       ),
                                       title: Text(state.categories[i].name),
                                       tileColor:

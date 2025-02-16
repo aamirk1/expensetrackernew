@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
-import '../../../data/data.dart';
-
 class MainScreen extends StatelessWidget {
   final List<Expense> expenses;
   const MainScreen(this.expenses, {super.key});
@@ -227,14 +225,15 @@ class MainScreen extends StatelessWidget {
               child: ListView.builder(
                   itemCount: expenses.length,
                   itemBuilder: (context, int i) {
+                    print('data ${expenses[i].category.icon}');
                     return Padding(
-                      padding: const EdgeInsets.only(bottom: 16.0),
+                      padding: const EdgeInsets.only(bottom: 10.0),
                       child: Container(
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(12)),
                         child: Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -253,7 +252,7 @@ class MainScreen extends StatelessWidget {
                                       ),
                                       Image.asset(
                                         'assets/icons/${expenses[i].category.icon}.png',
-                                        scale: 4,
+                                        scale: -2,
                                         color: Colors.white,
                                       )
                                     ],
